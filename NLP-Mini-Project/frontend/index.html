@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TF-IDF Document Search Engine</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      
+      <main class="container">
+        <header>
+          <h1><i class="fa-solid fa-magnifying-glass"></i> NeuralSearch</h1>
+          <p class="subtitle">TF-IDF Powered Document Intelligence</p>
+          <div class="stats" id="stats">
+            <span class="badge"><i class="fa-solid fa-file-lines"></i> <span id="doc-count">0</span> Documents</span>
+            <span class="badge"><i class="fa-solid fa-book"></i> <span id="vocab-size">0</span> Vocabulary</span>
+          </div>
+        </header>
+
+        <section class="upload-section glass-panel">
+          <h2><i class="fa-solid fa-cloud-arrow-up"></i> Upload Documents</h2>
+          <form id="upload-form">
+            <div class="file-input-wrapper">
+              <label for="file-upload" class="file-label">
+                <i class="fa-solid fa-file-arrow-up"></i> Choose a .txt or .pdf file
+              </label>
+              <input type="file" id="file-upload" accept=".txt,.pdf" required />
+            </div>
+            <button type="submit" class="btn primary-btn" id="upload-btn">
+              <span>Upload & Index</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+          <div id="upload-message" class="message hidden"></div>
+        </section>
+
+        <section class="search-section glass-panel">
+          <h2><i class="fa-solid fa-search"></i> Search Corpus</h2>
+          <form id="search-form" class="search-bar">
+            <input type="text" id="search-input" placeholder="Enter your search query..." required />
+            <button type="submit" class="btn search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </section>
+
+        <section class="results-section">
+          <div id="results-container" class="results-grid">
+            <!-- Results will be injected here -->
+          </div>
+          <div id="no-results" class="hidden glass-panel empty-state">
+            <i class="fa-solid fa-inbox"></i>
+            <p>No results found. Try a different query.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
